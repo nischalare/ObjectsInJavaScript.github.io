@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>CreatingNewObjects</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Creating New Objects</h1>
+            <p class="lead">In JavaScript, You can create an object using an object initializer </p>
+            <hr class="my-4">
+            <p>Alternatively, you can first create a constructor function and then instantiate an object invoking that function in conjunction with the new operator.</p>
+            <ul>The syntax for an object using an object initializer is:
+                <li>const obj = {</li>
+                <li>&nbsp&nbsp  property_1:   value_1,   // property value may be an identifier...</li>
+                <li>&nbsp&nbsp 2:            value_2,   // or a number...</li>
+                <li>&nbsp&nbsp // ...,</li>
+                <li>&nbsp&nbsp 'property n': value_n    // or a string</li>
+                <li>};</li>
+            </ul>
+            <hr>
+            <p>Objects are created as if a call to new Object() were made; that is, objects made from object literal expressions are instances of Object.</p>
+            <p>The following statement creates an object and assigns it to the variable x if and only if the expression cond is true:</p>
+            <ul>
+                <li>let x;</li>
+                <li>if (cond) {</li>
+                <li>&nbsp&nbsp x = {greeting: 'hi there'};</li>
+                <li>}</li>
+            </ul>
+            <hr>
+            <h4>Using a constructor function</h4>
+            <p>you can create an object with these two steps:</p>
+            <ol>
+                <li>Define the object type by writing a constructor function. There is a strong convention, with good reason, to use a capital initial letter.</li>
+                <li>Create an instance of the object with new.</li>
+            </ol>
+            <p>suppose you want to create an object type for cars. You want this type of object to be called Car, and you want it to have properties for make, model, and year.</p>
+            <ul>
+                <li>function Car(make, model, year) {</li>
+                <li>&nbsp&nbsp this.make = make;</li>
+                <li>&nbsp&nbsp this.model = model;</li>
+                <li>&nbsp&nbsp this.year = year;</li>
+                <li>}</li>
+            </ul>
+            <p>Notice the use of this to assign values to the object's properties based on the values passed to the function.</p>
+            <ul>
+                <li>Now you can create an object called myCar as follows:</li>
+            </ul>
+            <p>This statement creates myCar and assigns it the specified values for its properties. Then the value of myCar.make is the string "Eagle", myCar.model is the string "Talon TSi", myCar.year is the integer 1993.</p>
+            <hr>
+            <h4>Using the Object.create method</h4>
+            <p>Objects can also be created using the Object.create() method. This method can be very useful, because it allows you to choose the prototype object for the object you want to create, without having to define a constructor function.</p>
+            <ul>
+                <li>// Animal properties and method encapsulation</li>
+                <li>const Animal = {</li>
+                <li>&nbsp&nbsp type: 'Invertebrates', // Default value of properties</li>
+                <li>&nbsp&nbsp displayType: function() {  // Method which will display type of Animal</li>
+                <li>&nbsp&nbsp&nbsp&nbsp console.log(this.type);</li>
+                <li>&nbsp&nbsp }</li>
+                <li>};</li>
+                <li></li>
+                <li>// Create new animal type called animal1</li>
+                <li>const animal1 = Object.create(Animal);</li>
+                <li>animal1.displayType(); // Output: Invertebrates</li>
+                <li></li>
+                <li>// Create new animal type called fish</li>
+                <li>const fish = Object.create(Animal);</li>
+                <li>fish.type = 'Fishes';</li>
+                <li>fish.displayType(); // Output: Fishes</li>
+                <li></li>
+            </ul>
+            <hr>
+
+
+
+            <a class="btn btn-primary btn-lg" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects" role="button">Learn more</a>
+          </div>
+    </div>
+   
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

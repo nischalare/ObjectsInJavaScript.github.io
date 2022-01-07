@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>EnumeratePropertiesOfObject</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">EnumeratePropertiesOfObject</h1>
+            <p class="lead">There are three native ways to list/traverse object properties</p>
+            <hr class="my-4">
+            <h4>for...in</h4>
+            <p>This method traverses all enumerable properties of an object and its prototype chain.</p>
+            <ul>JavaScript Demo: Statement - For...In
+                <li>const object = { a: 1, b: 2, c: 3 };</li>
+                <li></li>
+                <li>for (const property in object) {</li>
+                <li>&nbsp&nbsp   console.log(`${property}: ${object[property]}`);</li>
+                <li>}</li>
+                <li></li>
+                <li>// expected output:</li>
+                <li>// "a: 1"</li>
+                <li>// "b: 2"</li>
+                <li>// "c: 3"</li>
+            </ul>
+            <hr>
+            <h4>Object.keys(o)</h4>
+            <p>This method returns an array with all the own (not in the prototype chain) enumerable properties' names ("keys") of an object o.</p>
+            <ul>JavaScript Demo: Object.keys()
+                <li>const object1 = {</li>
+                <li>&nbsp&nbsp   a: 'somestring',</li>
+                <li>&nbsp&nbsp   b: 42,</li>
+                <li>&nbsp&nbsp   c: false</li>
+                <li>};</li>
+                <li></li>
+                <li>console.log(Object.keys(object1));</li>
+                <li>// expected output: Array ["a", "b", "c"]</li>
+             </ul>
+             <hr>
+             <h4>Object.getOwnPropertyNames(o)</h4>
+             <p>This method returns an array containing all own properties' names (enumerable or not) of an object o.</p>
+             <ul>There is no native way to list "hidden" properties
+                 <li>function listAllProperties(o) {</li>
+                 <li>&nbsp&nbsp let objectToInspect = o;</li>
+                 <li>&nbsp&nbsp let result = [];</li>
+                 <li></li>
+                 <li>&nbsp&nbsp while(objectToInspect !== null) {</li>
+                 <li>&nbsp&nbsp&nbsp  result = result.concat(Object.getOwnPropertyNames(objectToInspect));</li>
+                 <li>&nbsp&nbsp&nbsp     objectToInspect = Object.getPrototypeOf(objectToInspect)</li>
+                 <li> }</li>
+                 <li></li>
+                 <li>return result;</li>
+                 <li>}</li>
+                 <li></li>
+             </ul>
+             <hr>
+
+
+            <a class="btn btn-primary btn-lg" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects" role="button">Learn more</a>
+          </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
